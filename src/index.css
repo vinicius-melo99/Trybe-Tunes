@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: Epilogue, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -52,6 +58,7 @@ code {
   color: white;
   font-size: 52px;
   margin-top: 30px;
+  margin-bottom: 75px;
 }
 
 .login-input-container {
@@ -105,4 +112,49 @@ code {
 
 .page-loading p {
   font-size: 32px;
+}
+
+.page-side-nav {
+  display: flex;
+  width: 22%;
+  padding: 25px 0;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  background-color: black;
+  color:#ef3255;
+}
+
+.page-side-nav h1 {
+  font-size: 38px;
+  margin-left: 5%;
+}
+
+.header-user-name {
+  font-size: 21px;
+  display: flex;
+  justify-content: center;
+}
+
+.header-nav-links {
+  display: flex;
+  flex-direction: column;
+}
+
+#white {
+  color: white;
+}
+
+.nav-link {
+  text-align: center;
+  color: #ef3255;
+  text-decoration: none;
+  padding: 20px 0;
+  font-size: 18px;
+  transition: 0.15s;
+}
+
+.nav-link:hover {
+  background-color: #ef3255;
+  color: white;
 }

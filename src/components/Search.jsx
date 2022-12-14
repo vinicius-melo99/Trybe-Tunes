@@ -4,7 +4,7 @@ import Header from './Header';
 class Search extends Component {
   render() {
     return (
-      <div data-testid="page-search">
+      <div data-testid="page-search" className="flex-page">
         <Header />
       </div>
     );
