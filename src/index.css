@@ -114,6 +114,10 @@ code {
   font-size: 32px;
 }
 
+.flex-page {
+  display: flex;
+}
+
 .page-side-nav {
   display: flex;
   width: 22%;
@@ -125,9 +129,28 @@ code {
   color:#ef3255;
 }
 
+.main-content {
+  width: 78%;
+  height: 100vh;
+}
+
+.main-content header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35%;
+  background-color: rgb(10, 10, 10);
+}
+
+.main-content section {
+  height: 65%;
+  background-color: rgb(59, 59, 59);
+}
+
 .page-side-nav h1 {
   font-size: 38px;
-  margin-left: 5%;
+  text-align: center;
+  position: relative;
 }
 
 .header-user-name {
@@ -152,9 +175,47 @@ code {
   padding: 20px 0;
   font-size: 18px;
   transition: 0.15s;
+  border-radius: 5px;
 }
 
 .nav-link:hover {
   background-color: #ef3255;
+  color: white;
+}
+
+.search-artist-container {
+  display: flex;
+}
+
+.search-artist-container input {
+  width: 450px;
+  height: 40px;
+  font-size: 14px;
+  margin-right: 5px;
+  padding: 5px 25px;
+  border-radius: 30px;
+  border: 1px solid #ef3255;
+  background-color: transparent;
+  color: white;
+  outline: none;
+}
+
+.search-artist-container button {
+  width: 144px;
+  border-radius: 30px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  background-color: #ef3255;
+  color: white;
+  transition: 0.2s;
+}
+
+.search-artist-container button:hover {
+  background-color: #b82641;
+}
+
+.search-artist-container input::placeholder {
   color: white;
 }
