@@ -18,9 +18,7 @@ class Header extends Component {
     const { user } = this.state;
 
     return (
-      <header
-        data-testid="header-component"
-      >
+      <header data-testid="header-component">
         {user
           ? <span data-testid="header-user-name">{user}</span>
           : <span>Carregando...</span>}
