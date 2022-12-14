@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import Header from './Header';
 
 class Favorites extends Component {
   render() {
     return (
       <div data-testid="page-favorites">
-        <h1>Sou Favorites</h1>
+        <Header />
       </div>
     );
   }
