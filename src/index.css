@@ -286,6 +286,12 @@ code {
   flex-direction: column;
   align-items: flex-start;
   border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.album-card:hover {
+  transform: scale(1.05);
 }
 
 .album-card img {

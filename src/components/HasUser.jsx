@@ -9,7 +9,7 @@ class HasUser extends Component {
       <div>
         <span className="user-name-label">
           <img src={ profileImage } alt="imagem do perfil" />
-          <span>{ user }</span>
+          <span data-testid="header-user-name">{ user }</span>
         </span>
       </div>
     );
