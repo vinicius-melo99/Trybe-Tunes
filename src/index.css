@@ -142,15 +142,27 @@ code {
   background-color: rgb(10, 10, 10);
 }
 
-.main-content section {
+.main-content .render-albums-input {
   height: 65%;
   background-color: rgb(59, 59, 59);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  overflow-y: scroll;
+}
+
+.main-content section span {
+  color: white;
+  font-size: 38px;
+  font-style: italic;
+  margin-top: 20px;
 }
 
 .page-side-nav h1 {
   font-size: 38px;
   text-align: center;
   position: relative;
+  cursor: pointer;
 }
 
 .header-user-name {
@@ -218,4 +230,101 @@ code {
 
 .search-artist-container input::placeholder {
   color: white;
+}
+
+.user-name-label {
+  background-color: rgba(194, 194, 194, 0.3);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 16px;
+  padding: 4px;
+  border-radius: 20px;
+}
+
+.user-name-label span {
+  margin-right: 5px;
+}
+
+.user-name-label img {
+  margin-right: 20px;
+}
+
+.album-list {
+  margin-top: 35px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.album-list h1 {
+  font-size: 22px;
+}
+
+.error-message {
+  color: white;
+  margin-top: 25px;
+}
+
+
+.album-list-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 40px;
+  justify-content: center;
+}
+
+.album-card {
+  width: 28%;
+  background-color: #0A0A0A;
+  margin-left: 20px;
+  margin-bottom: 59px;
+  color: #ef3255;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: 10px;
+}
+
+.album-card img {
+  width: 100%;
+  height: 215px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.album-card:nth-child(1) {
+  margin-left: 0;
+}
+
+.card-informations {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 10px;
+  padding-left: 4px;
+}
+
+.card-informations h3 {
+  margin-bottom: 15px;
+  font-size: 13px;
+}
+
+.card-informations h4 {
+  font-size: 12px;
+}
+
+.album-link {
+  text-decoration: none;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  width: 100%;
+  color: #ef3255;
+  text-align: left;
+}
+
+.album-link::after{
+  content: ' >>';
 }

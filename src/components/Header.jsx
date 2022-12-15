@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { getUser } from '../services/userAPI';
+import HasUser from './HasUser';
+import DontHasUser from './DontHasUser';
 
 class Header extends Component {
   constructor() {
@@ -53,9 +55,7 @@ class Header extends Component {
           </Link>
         </section>
         <section className="header-user-name">
-          {user
-            ? <span data-testid="header-user-name">{user}</span>
-            : <span>Carregando...</span>}
+          {user ? <HasUser user={ user } /> : <DontHasUser />}
         </section>
 
       </header>
