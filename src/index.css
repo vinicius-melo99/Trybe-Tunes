@@ -140,6 +140,7 @@ code {
   justify-content: center;
   height: 35%;
   background-color: rgb(10, 10, 10);
+  position: relative
 }
 
 .main-content .render-albums-input {
@@ -333,4 +334,47 @@ code {
 
 .album-link::after{
   content: ' >>';
+}
+
+.album-information {
+  display: flex;
+  width: 50%;
+  position: absolute;
+  left: 30px;
+}
+
+.album-information .album-info-image {
+  width: 275px;
+  border: 8px solid rgba(239, 50, 85, 0.6);
+  background-clip: padding-box;
+  border-radius: 10px;
+}
+
+.album-info-name {
+  color: #ef3255;
+  text-align: left;
+  margin-left: 15px;
+  margin-top: 45px;
+}
+
+.album-info-name h3 {
+  margin-bottom: 15px;
+  font-size: 25px;
+}
+
+.music-list-container {
+  padding-top: 35px;
+  display: inline-block;
+}
+
+.music-list-container audio {
+  margin-bottom: 5px;
+}
+
+.music-list-container .track-name {
+  font-style: normal;
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: white;
+  font-weight: 600;
 }
