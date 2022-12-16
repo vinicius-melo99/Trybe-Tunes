@@ -1,10 +1,47 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import Load from './Load';
+import { addSong } from '../services/favoriteSongsAPI';
 
 class MusicCard extends Component {
+  constructor() {
+    super();
+    this.addFavoriteSong = this.addFavoriteSong.bind(this);
+    this.state = {
+      musicList: [],
+      isLoading: false,
+      checked: false,
+    };
+  }
+
+  componentDidMount() {
+    const { musicList } = this.props;
+    this.setState({
+      musicList,
+    });
+  }
+
+  async addFavoriteSong({ target: { name, checked } }) {
+    const { musicList } = this.state;
+    this.setState({ isLoading: true });
+    if (checked) {
+      this.setState({ checked: true });
+      const musicToFavorite = musicList.find(({ trackName }) => (
+        trackName === name
+      ));
+      await addSong(musicToFavorite);
+      this.setState({ isLoading: false });
+    } else {
+      this.setState({ checked: false });
+    }
+  }
+
   render() {
-    const { previewUrl, trackName } = this.props;
-    console.log(trackName);
+    const { previewUrl, trackName, trackId } = this.props;
+    const { isLoading, checked } = this.state;
+
+    if (isLoading) return <Load />;
+
     return (
       <div className="music-list-container">
         <p className="track-name">{trackName}</p>
@@ -16,6 +53,13 @@ class MusicCard extends Component {
           <code>audio</code>
           .
         </audio>
+        <input
+          name={ trackName }
+          type="checkbox"
+          data-testid={ `checkbox-music-${trackId}` }
+          onClick={ this.addFavoriteSong }
+          checked={ checked }
+        />
       </div>
 
     );
@@ -25,11 +69,15 @@ class MusicCard extends Component {
 MusicCard.propTypes = {
   previewUrl: PropTypes.string,
   trackName: PropTypes.string,
+  trackId: PropTypes.number,
+  musicList: PropTypes.instanceOf(Array),
 };
 
 MusicCard.defaultProps = {
   previewUrl: '',
   trackName: '',
+  trackId: '',
+  musicList: [],
 };
 
 export default MusicCard;

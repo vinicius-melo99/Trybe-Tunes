@@ -44,14 +44,17 @@ class Album extends Component {
             />
           </header>
           <section className="render-albums-input">
-            {musicList.map(({ previewUrl, trackName }, index) => (
-              previewUrl ? <MusicCard
-                key={ index }
-                previewUrl={ previewUrl }
-                trackName={ trackName }
-              />
-                : ''
-            ))}
+            {musicList
+              .map(({ previewUrl, trackName, trackId }, index) => (
+                previewUrl ? <MusicCard
+                  key={ index }
+                  previewUrl={ previewUrl }
+                  trackName={ trackName }
+                  trackId={ trackId }
+                  musicList={ musicList }
+                />
+                  : ''
+              ))}
 
           </section>
         </div>

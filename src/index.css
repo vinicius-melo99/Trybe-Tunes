@@ -369,6 +369,8 @@ code {
 
 .music-list-container audio {
   margin-bottom: 5px;
+  margin-right: 50px;
+  vertical-align: middle;
 }
 
 .music-list-container .track-name {
@@ -377,4 +379,6 @@ code {
   margin-bottom: 10px;
   color: white;
   font-weight: 600;
+  position: relative;
+  left: -25px;
 }
