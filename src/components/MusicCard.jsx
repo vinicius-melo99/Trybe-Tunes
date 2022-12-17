@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { addSong } from '../services/favoriteSongsAPI';
+import { addSong, removeSong } from '../services/favoriteSongsAPI';
 
 class MusicCard extends Component {
   constructor() {
     super();
-    this.addFavoriteSong = this.addFavoriteSong.bind(this);
+    this.handleFavoriteSong = this.handleFavoriteSong.bind(this);
     this.state = {
       musicList: [],
       isLoading: false,
@@ -21,8 +21,9 @@ class MusicCard extends Component {
     });
   }
 
-  async addFavoriteSong({ target: { name, checked } }) {
+  async handleFavoriteSong({ target: { name, checked } }) {
     const { musicList } = this.state;
+    console.log(checked);
     this.setState({ isLoading: true });
     if (checked) {
       this.setState({ checked: true });
@@ -30,10 +31,14 @@ class MusicCard extends Component {
         trackName === name
       ));
       await addSong(musicToFavorite);
-      this.setState({ isLoading: false });
     } else {
       this.setState({ checked: false });
+      const musicToRemoveFavorite = musicList.find(({ trackName }) => (
+        trackName === name
+      ));
+      await removeSong(musicToRemoveFavorite);
     }
+    this.setState({ isLoading: false });
   }
 
   render() {
@@ -57,7 +62,7 @@ class MusicCard extends Component {
           name={ trackName }
           type="checkbox"
           data-testid={ `checkbox-music-${trackId}` }
-          onChange={ this.addFavoriteSong }
+          onChange={ this.handleFavoriteSong }
           checked={ checked }
         />
       </div>
