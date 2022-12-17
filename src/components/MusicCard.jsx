@@ -14,9 +14,10 @@ class MusicCard extends Component {
   }
 
   componentDidMount() {
-    const { musicList } = this.props;
+    const { musicList, checked } = this.props;
     this.setState({
       musicList,
+      checked,
     });
   }
 
@@ -70,6 +71,7 @@ MusicCard.propTypes = {
   trackName: PropTypes.string,
   trackId: PropTypes.number,
   musicList: PropTypes.instanceOf(Array),
+  checked: PropTypes.bool,
 };
 
 MusicCard.defaultProps = {
@@ -77,6 +79,7 @@ MusicCard.defaultProps = {
   trackName: '',
   trackId: '',
   musicList: [],
+  checked: false,
 };
 
 export default MusicCard;

@@ -5,12 +5,14 @@ import getMusics from '../services/musicsAPI';
 import AlbumInformation from './AlbumInformation';
 import Load from './Load';
 import MusicCard from './MusicCard';
+import { getFavoriteSongs } from '../services/favoriteSongsAPI';
 
 class Album extends Component {
   constructor() {
     super();
     this.state = {
       musicList: [],
+      favoriteSongsName: [],
       isLoading: false,
       artistName: '',
       collectionName: '',
@@ -26,12 +28,22 @@ class Album extends Component {
       musicList,
       artistName,
       collectionName,
+    });
+    const songList = await getFavoriteSongs();
+    const favoriteSongsName = songList.map(({ trackName }) => trackName);
+    this.setState({
       isLoading: false,
+      favoriteSongsName,
     });
   }
 
   render() {
-    const { musicList, artistName, collectionName, isLoading } = this.state;
+    const {
+      musicList,
+      artistName,
+      collectionName,
+      isLoading,
+      favoriteSongsName } = this.state;
     if (isLoading) return <Load />;
     return (
       <div data-testid="page-album" className="flex-page">
@@ -45,17 +57,16 @@ class Album extends Component {
           </header>
           <section className="render-albums-input">
             {musicList
-              .map(({ previewUrl, trackName, trackId }, index) => (
-                previewUrl ? <MusicCard
-                  key={ index }
-                  previewUrl={ previewUrl }
-                  trackName={ trackName }
-                  trackId={ trackId }
-                  musicList={ musicList }
-                  addFavoriteSong={ this.addFavoriteSong }
-                />
-                  : ''
-              ))}
+              .map(({ previewUrl, trackName, trackId }, index) => (previewUrl ? <MusicCard
+                key={ index - 1 }
+                previewUrl={ previewUrl }
+                trackName={ trackName }
+                trackId={ trackId }
+                musicList={ musicList }
+                addFavoriteSong={ this.addFavoriteSong }
+                checked={ !!favoriteSongsName.includes(trackName) }
+              />
+                : ''))}
 
           </section>
         </div>
