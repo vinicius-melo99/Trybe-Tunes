@@ -382,3 +382,8 @@ code {
   position: relative;
   left: -25px;
 }
+
+.favorite-title {
+  color: #ef3255;
+  font-size: 42px;
+}

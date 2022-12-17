@@ -42,11 +42,13 @@ class MusicCard extends Component {
   }
 
   async removeFavorite(musicList, musicName) {
+    const { updateFavorite } = this.props;
     this.setState({ checked: false });
     const musicToRemoveFavorite = musicList.find(({ trackName }) => (
       trackName === musicName
     ));
     await removeSong(musicToRemoveFavorite);
+    updateFavorite();
   }
 
   render() {
@@ -85,6 +87,7 @@ MusicCard.propTypes = {
   trackId: PropTypes.number,
   musicList: PropTypes.instanceOf(Array),
   checked: PropTypes.bool,
+  updateFavorite: PropTypes.func,
 };
 
 MusicCard.defaultProps = {
@@ -93,6 +96,7 @@ MusicCard.defaultProps = {
   trackId: '',
   musicList: [],
   checked: false,
+  updateFavorite: () => {},
 };
 
 export default MusicCard;
