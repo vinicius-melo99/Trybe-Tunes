@@ -52,6 +52,7 @@ class Album extends Component {
                   trackName={ trackName }
                   trackId={ trackId }
                   musicList={ musicList }
+                  addFavoriteSong={ this.addFavoriteSong }
                 />
                   : ''
               ))}

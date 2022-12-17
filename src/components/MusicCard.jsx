@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import Load from './Load';
 import { addSong } from '../services/favoriteSongsAPI';
 
 class MusicCard extends Component {
@@ -40,11 +39,11 @@ class MusicCard extends Component {
     const { previewUrl, trackName, trackId } = this.props;
     const { isLoading, checked } = this.state;
 
-    if (isLoading) return <Load />;
-
     return (
       <div className="music-list-container">
-        <p className="track-name">{trackName}</p>
+        <p className="track-name">
+          {isLoading ? 'Carregando...' : trackName}
+        </p>
         <audio data-testid="audio-component" src={ previewUrl } controls>
           <track kind="captions" />
           O seu navegador não suporta o elemento
@@ -57,7 +56,7 @@ class MusicCard extends Component {
           name={ trackName }
           type="checkbox"
           data-testid={ `checkbox-music-${trackId}` }
-          onClick={ this.addFavoriteSong }
+          onChange={ this.addFavoriteSong }
           checked={ checked }
         />
       </div>
