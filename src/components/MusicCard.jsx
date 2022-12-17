@@ -23,12 +23,14 @@ class MusicCard extends Component {
   }
 
   async handleFavoriteSong({ target: { name, checked } }) {
+    const { updateFavorite } = this.props;
     const { musicList } = this.state;
     this.setState({ isLoading: true });
     if (checked) {
       await this.addFavorite(musicList, name);
     } else {
       await this.removeFavorite(musicList, name);
+      await updateFavorite();
     }
     this.setState({ isLoading: false });
   }
@@ -42,13 +44,11 @@ class MusicCard extends Component {
   }
 
   async removeFavorite(musicList, musicName) {
-    const { updateFavorite } = this.props;
     this.setState({ checked: false });
     const musicToRemoveFavorite = musicList.find(({ trackName }) => (
       trackName === musicName
     ));
     await removeSong(musicToRemoveFavorite);
-    updateFavorite();
   }
 
   render() {
@@ -68,13 +68,17 @@ class MusicCard extends Component {
           <code>audio</code>
           .
         </audio>
-        <input
-          name={ trackName }
-          type="checkbox"
-          data-testid={ `checkbox-music-${trackId}` }
-          onChange={ this.handleFavoriteSong }
-          checked={ checked }
-        />
+        <label htmlFor={ trackId }>
+          Favorita
+          <input
+            name={ trackName }
+            type="checkbox"
+            data-testid={ `checkbox-music-${trackId}` }
+            onChange={ this.handleFavoriteSong }
+            checked={ checked }
+            id={ trackId }
+          />
+        </label>
       </div>
 
     );

@@ -380,7 +380,17 @@ code {
   color: white;
   font-weight: 600;
   position: relative;
-  left: -25px;
+  left: -55px;
+}
+
+.music-list-container label {
+  color: white;
+  cursor: pointer;
+}
+
+.music-list-container input[type="checkbox"] {
+  margin-left: 10px;
+  vertical-align: middle;
 }
 
 .favorite-title {

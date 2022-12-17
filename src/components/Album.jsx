@@ -55,8 +55,8 @@ class Album extends Component {
           </header>
           <section className="render-albums-input">
             {musicList
-              .map(({ previewUrl, trackName, trackId }, index) => (previewUrl ? <MusicCard
-                key={ index - 1 }
+              .map(({ previewUrl, trackName, trackId }) => (previewUrl ? <MusicCard
+                key={ trackId }
                 previewUrl={ previewUrl }
                 trackName={ trackName }
                 trackId={ trackId }

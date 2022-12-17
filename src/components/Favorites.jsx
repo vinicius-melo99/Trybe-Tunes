@@ -17,16 +17,25 @@ class Favorites extends Component {
   async componentDidMount() {
     this.setState({ isLoading: true });
     const favoriteSongs = await getFavoriteSongs();
+    console.log(favoriteSongs);
     this.setState({
       favoriteSongs,
       isLoading: false,
     });
   }
 
-  async updateFavorite() {
+  async componentDidUpdate() {
     const favoriteSongs = await getFavoriteSongs();
     this.setState({
       favoriteSongs,
+      isLoading: false,
+    });
+  }
+
+  updateFavorite() {
+    this.setState({
+      isLoading: true,
+      favoriteSongs: undefined,
     });
   }
 
@@ -43,8 +52,8 @@ class Favorites extends Component {
           </header>
           <section className="render-albums-input">
             {favoriteSongs ? favoriteSongs
-              .map(({ previewUrl, trackName, trackId }, index) => (<MusicCard
-                key={ index - 1 }
+              .map(({ previewUrl, trackName, trackId }) => (<MusicCard
+                key={ trackId }
                 previewUrl={ previewUrl }
                 trackName={ trackName }
                 trackId={ trackId }
