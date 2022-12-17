@@ -6,6 +6,7 @@ class MusicCard extends Component {
   constructor() {
     super();
     this.handleFavoriteSong = this.handleFavoriteSong.bind(this);
+    this.addFavorite = this.addFavorite.bind(this);
     this.state = {
       musicList: [],
       isLoading: false,
@@ -23,22 +24,29 @@ class MusicCard extends Component {
 
   async handleFavoriteSong({ target: { name, checked } }) {
     const { musicList } = this.state;
-    console.log(checked);
     this.setState({ isLoading: true });
     if (checked) {
-      this.setState({ checked: true });
-      const musicToFavorite = musicList.find(({ trackName }) => (
-        trackName === name
-      ));
-      await addSong(musicToFavorite);
+      await this.addFavorite(musicList, name);
     } else {
-      this.setState({ checked: false });
-      const musicToRemoveFavorite = musicList.find(({ trackName }) => (
-        trackName === name
-      ));
-      await removeSong(musicToRemoveFavorite);
+      await this.removeFavorite(musicList, name);
     }
     this.setState({ isLoading: false });
+  }
+
+  async addFavorite(musicList, musicName) {
+    this.setState({ checked: true });
+    const musicToFavorite = musicList.find(({ trackName }) => (
+      trackName === musicName
+    ));
+    await addSong(musicToFavorite);
+  }
+
+  async removeFavorite(musicList, musicName) {
+    this.setState({ checked: false });
+    const musicToRemoveFavorite = musicList.find(({ trackName }) => (
+      trackName === musicName
+    ));
+    await removeSong(musicToRemoveFavorite);
   }
 
   render() {
