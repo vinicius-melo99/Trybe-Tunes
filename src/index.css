@@ -430,6 +430,7 @@ code {
   width: 35%;
   color: white;
   margin-top: 20px;
+  word-wrap: break-word;
 }
 
 .info-wrap-edit {
@@ -519,4 +520,9 @@ code {
 .perfil-edit-button:disabled:hover {
   background-color: #ef3255;
   cursor: not-allowed;
+}
+
+.description-text {
+  text-align: justify;
+  line-height: 25px;
 }

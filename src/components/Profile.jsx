@@ -54,7 +54,7 @@ class Profile extends Component {
             </section>
             <section className="info-wrap text-align-left">
               <h3 className="info-title">Descrição</h3>
-              <p>{description}</p>
+              <p className="description-text">{description}</p>
             </section>
           </section>
         </div>
