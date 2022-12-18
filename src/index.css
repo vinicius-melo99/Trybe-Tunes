@@ -18,6 +18,14 @@ code {
     monospace;
 }
 
+.align-center {
+  align-items: center;
+}
+
+.text-align-left {
+  text-align: left;
+}
+
 .loading {
   align-items: center;
   display: flex;
@@ -396,4 +404,42 @@ code {
 .favorite-title {
   color: #ef3255;
   font-size: 42px;
+}
+
+.header-title {
+  color: #ef3255;
+  font-size: 38px;
+}
+
+.profile-img {
+  width: 128px;
+}
+
+.perfil-edit-link {
+  color: white;
+  background-color: #ef3255;
+  width: 175px;
+  padding: 14px 0;
+  text-decoration: none;
+  border-radius: 30px;
+}
+
+.info-wrap {
+  width: 45%;
+  color: white;
+  margin-top: 20px;
+}
+
+.perfil-edit-link:hover {
+  background-color: #b82641;
+}
+
+.position-adjustment {
+  justify-content: center ;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.info-title {
+  margin-bottom: 5px;
 }
