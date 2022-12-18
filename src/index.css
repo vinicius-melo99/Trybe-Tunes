@@ -413,6 +413,8 @@ code {
 
 .profile-img {
   width: 128px;
+  height: 128px;
+  border-radius: 50%;
 }
 
 .perfil-edit-link {
@@ -425,9 +427,23 @@ code {
 }
 
 .info-wrap {
+  width: 35%;
+  color: white;
+  margin-top: 20px;
+}
+
+.info-wrap-edit {
   width: 45%;
   color: white;
   margin-top: 20px;
+}
+
+.info-wrap-edit h3 {
+  font-size: 15px;
+}
+
+.info-wrap-edit h3::after{
+  content: ' :';
 }
 
 .perfil-edit-link:hover {
@@ -442,4 +458,65 @@ code {
 
 .info-title {
   margin-bottom: 5px;
+}
+
+.profile-img-edit {
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-right: 40px;
+}
+
+/* button:disabled:hover{
+  cursor: not-allowed;
+} */
+
+.input-edit-design {
+  background-color: transparent;
+  font-size: 16px;
+  padding-left: 10px;
+  color: white;
+  height: 32px;
+  border-radius: 20px;
+  width: 256px;
+  border: 1px solid #ef3255;
+  outline: none;
+}
+
+.textarea-edit-design {
+  background-color: transparent;
+  width: 100%;
+  color: white;
+  margin-top: 5px;
+  font-size: 16px;
+  height: 150px;
+  border: 1px solid #ef3255;
+  outline: none;
+  padding: 10px;
+  resize: none;
+  border-radius: 10px;
+}
+
+.perfil-edit-button {
+  color: white;
+  background-color: #ef3255;
+  width: 175px;
+  padding: 14px 0;
+  text-decoration: none;
+  font-size: 15px;
+  border-radius: 30px;
+  margin-bottom: 20px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.perfil-edit-button:hover {
+  background-color: #b82641;
+}
+
+.perfil-edit-button:disabled:hover {
+  background-color: #ef3255;
+  cursor: not-allowed;
 }
